@@ -1,20 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
-// importing currency.js for Task 4
-import Currency from '../components/Currency.js'
-//Added Currency to line 7 below for Task 4
+
 const AllocationForm = (props) => {
-    const { dispatch,remaining,Currency  } = useContext(AppContext);
+    const { dispatch,remaining } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
 
     const submitEvent = () => {
-//Removed £ in line 17 alert and added currency to line 17 for task 4
+
             if(cost > remaining) {
-                alert("The value cannot exceed remaining funds " Currency + remaining);
+                alert("The value cannot exceed remaining funds " + remaining);
                 setCost("");
                 return;
             }
